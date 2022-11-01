@@ -1,0 +1,119 @@
+/////////////////////////////////////////////// 16 core //////////////////////////////////////////
+
+Mutex (1 shard)
+
+goos: windows
+goarch: amd64
+pkg: go_tests
+cpu: AMD Ryzen 7 4800HS with Radeon Graphics         
+BenchmarkMutex-16    	 3136098	       462.2 ns/op	      33 B/op	       1 allocs/op
+PASS
+ok  	go_tests	2.208s
+
+
+Unbuffered_Chan
+
+goos: windows
+goarch: amd64
+pkg: go_tests
+cpu: AMD Ryzen 7 4800HS with Radeon Graphics         
+BenchmarkChannel-16    	  941966	      1315 ns/op	      32 B/op	       0 allocs/op
+PASS
+ok  	go_tests	1.622s
+
+
+1000000 buffered_chan
+
+goos: windows
+goarch: amd64
+pkg: go_tests
+cpu: AMD Ryzen 7 4800HS with Radeon Graphics         
+BenchmarkChannel-16    	50880226	       513.9 ns/op	      31 B/op	       0 allocs/op
+PASS
+ok  	go_tests	26.440s <--------------------------------------------- idk why
+
+
+////////////////////////////////////////////// 1 core ////////////////////////////////////////////
+
+Mutex (1 shard)
+
+goos: windows
+goarch: amd64
+pkg: go_tests
+cpu: AMD Ryzen 7 4800HS with Radeon Graphics
+BenchmarkMutex   1249308               925.8 ns/op            43 B/op          1 allocs/op
+PASS
+ok      go_tests        2.058s
+
+
+Unbuffered_Chan
+
+goos: windows
+goarch: amd64
+pkg: go_tests
+cpu: AMD Ryzen 7 4800HS with Radeon Graphics
+BenchmarkChannel         1560432               665.9 ns/op            32 B/op          0 allocs/op
+PASS
+ok      go_tests        2.270s
+
+
+/////////////////////////////////////// 16 core, only writes //////////////////////////////////////
+
+Mutex (1 shard)
+
+goos: windows
+goarch: amd64
+pkg: go_tests
+cpu: AMD Ryzen 7 4800HS with Radeon Graphics         
+BenchmarkMutex-16    	 1000000	      1021 ns/op	     130 B/op	       1 allocs/op
+PASS
+ok  	go_tests	1.434s
+
+
+Unbuffered_Chan
+
+goos: windows
+goarch: amd64
+pkg: go_tests
+cpu: AMD Ryzen 7 4800HS with Radeon Graphics         
+BenchmarkChannel-16    	 1000000	      1260 ns/op	     123 B/op	       0 allocs/op
+PASS
+ok  	go_tests	1.832s
+
+
+
+//////////////////////////////////////////////////////////////////
+/////////////////////// READ IN SYNC /////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+Mutex:
+
+goos: windows
+goarch: amd64
+pkg: go_tests
+cpu: AMD Ryzen 7 4800HS with Radeon Graphics         
+BenchmarkSyncMutex-16    	81757791	        26.29 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	go_tests	2.402s
+
+
+ReadWithChanWrite
+
+COUNT: 1 0
+goos: windows
+goarch: amd64
+pkg: go_tests
+cpu: AMD Ryzen 7 4800HS with Radeon Graphics         
+BenchmarkSyncReadWithChanWrite-16    	COUNT: 100 0
+COUNT: 9990 10
+COUNT: 999000 1000
+COUNT: 63199181 63262
+63262443	        34.47 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	go_tests	2.499
+
+..........................................................
+
+Conclusion: Values are identical in multiple trials!
+
+..........................................................

@@ -1,0 +1,7 @@
+CREATE KEYSPACE projecthdb WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+
+docker exec -it Redis redis-cli
+
+docker exec -it ScyllaDB cqlsh
+
+docker run -p 9000:9000 -p 9001:9001 --name Minio -v /mnt/data:/data -e "MINIO_ROOT_USER=PROJECTHDB_MINIO" -e "MINIO_ROOT_PASSWORD=np6b6z7VIXxHU6j0eDFStD0scvwFBW1ZfZawnDpYwUAYxvcZgIONQoOewNxX3lK" minio/minio server /data --console-address ":9001"

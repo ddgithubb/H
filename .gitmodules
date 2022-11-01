@@ -1,0 +1,9 @@
+[submodule "PROJECT_H_ROUTER"]
+	path = PROJECT_H_ROUTER
+	url = https://github.com/ddgithubb/PROJECT_H_ROUTER
+[submodule "PROJECT_H"]
+	path = PROJECT_H
+	url = https://github.com/ddgithubb/PROJECT_H
+[submodule "PROJECT_H_SERVER"]
+	path = PROJECT_H_SERVER
+	url = https://github.com/ddgithubb/PROJECT_H_SERVER

@@ -1,0 +1,8 @@
+- Revise Chain display
+- Add "input mapping"
+- Fix auth form + SMS verifiation
+- FCM
+- Profile page + setting
+- Errors
+- Add batching scyllaDB 
+- AWS
